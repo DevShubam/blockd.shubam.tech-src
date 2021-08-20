@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta and other stuff lol-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blocklists to block ads, malware, trackers and more. Free, for everyone.">
+    <meta name="keywords" content="Adguard, Pi-Hole, uBlock Origin, Blocklists, Filterlists, Blockd, AdBlock, Ad block">
+    <meta name="author" content="Shubam Sharma">
+    
+    <title>Blockd </title>
+    <link rel="icon" href="https://i.imgur.com/92JdfM2.png">
+    <!--Linking other files-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.mobile-container {
+			max-width: 480px;
+			margin: auto;
+			background-color: #555;
+			height: 5040px;
+			color: rgb(0, 0, 0);
+			border-radius: 0px;
+		}
+
+		.topnav {
+			overflow: hidden;
+			background-color: #000000;
+			position: relative;
+		}
+
+		.topnav #myLinks {
+			display: none;
+		}
+
+		.topnav a {
+			color: white;
+			padding: 16px 16px;
+			text-decoration: none;
+			font-size: 17px;
+			display: block;
+		}
+
+		.topnav a.icon {
+			background: black;
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.topnav a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+
+		.active {
+			background-color: #333;
+			color: white;
+		}
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+
+
+        /* Blockd Title */
+        .blockd-title {
+            text-align: center;
+            border: 3px solid #FF0000;
+        }
+
+		/* Table */
+		.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+
+		.titles {
+				text-align: center;
+			}
+
+</style>
+
+
+
+</head>
+
+<body>
+	<!-- Top Navigation Menu -->
+	<div class="topnav">
+		<a href="index.html" class="active">Home 🏠</a>
+		<div id="myLinks">
+            <a href="filters.html">Filters / Blocklists ⛔️ </a>
+	    	<a href="contact.html">Contact 📧 </a>
+      	    <a href="license" target="_blank">License 📝</a>
+
+		</div>
+		<a href="javascript:void(0);" class="icon" onclick="drop_down_menu()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<div style="padding-left:16px"> </div>
+
+    <!-- END TOP NAV MENU -->
+
+
+
+    <p> <button onclick="darkmode()">Toggle dark mode</button> </p>
+
+    <div class="blockd-title"><h1>⛔️Blockd⛔️</h1>  </div>
+
+<P>
+
+	<p><b>Type Definition:</b></p>
+	<p>Here is what the type column means:</p>
+	<p>Domains: This filter just has the raw domains, it will work with AdGuard, AdGuard Mobile, AdGuard Home, uBlock Origin and Pi-Hole.</p>
+	<p>Hosts: This filter has 0.0.0.0 infront of all domains, it will work with your hosts file, AdGuard, AdGuard Mobile, AdGuard Home, uBlock Origin, and Pi-Hole</p>
+	<p>ABP-Simplified: This filter has || before the domains, and ^ after the domains. This means it blocks that domain, and all of it's subdomains too (Unlike the top two). 
+		For example, "||example.org^" will block example.org, anything.example.org, example.org/anything and anything.example.org/anything. This will work with AdGuard, AdGuard Home, AdGuard Mobile and uBlock Origin.</p>
+	<p>AdBlocker: This is an advanced and most effective syntax. This will only work with AdGuard and uBlock Origin</p>
+	
+	
+	
+	
+	
+	<p> ‎</p>
+	<p> ‎</p>
+
+	<div class="titles"><h1>Filters</h1></div>
+		<table class="tg">
+		<tbody>
+			<tr>
+			<td class="tg-0pky">Name</td>
+			<td class="tg-0pky">Description</td>
+			<td class="tg-0pky">Type</td>
+			<td class="tg-0pky">Link to Filter</td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Whitelist</td>
+			<td class="tg-0pky">Whitelist's potential false positives.</td>
+			<td class="tg-0pky">ABP-Simplified</td>
+			<td class="tg-0pky"><a href="whitelist.txt" target="_blank">Link</a></td>
+		</tr>
+		  <tr>
+			<td class="tg-0pky">Ads Simple</td>
+			<td class="tg-0pky">Blocks domains that serve ads (Might also block some trackers)</td>
+			<td class="tg-0pky">ABP-Simplified</td>
+			<td class="tg-0pky"><a href="ads-simple.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Ads</td>
+			<td class="tg-0pky">Blocks domains that serve ads, and uses complex rules to remove ads completely.</td>
+			<td class="tg-0pky">ABP</td>
+			<td class="tg-0pky"><a href="ads.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Anti Anti AdBlock</td>
+			<td class="tg-0pky">Blocks Sites and Scripts that try to make you turn off your Ad Block.</td>
+			<td class="tg-0pky">AdBlocker</td>
+			<td class="tg-0pky"><a href="anti-anti-adblock.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Unsafe Browser Extensions</td>
+			<td class="tg-0pky">Blocks Browser Extensions that are not safe, do not work well, or have better alternatives.</td>
+			<td class="tg-0pky">ABP-Simplified</td>
+			<td class="tg-0pky"><a href="Bad-Extensions-abp-version.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Unsafe Browser Extensions</td>
+			<td class="tg-0pky">Blocks Browser Extensions that are not safe, do not work well, or have better alternatives.</td>
+			<td class="tg-0pky">Domains</td>
+			<td class="tg-0pky"><a href="badextensions-raw-version.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Crypto</td>
+			<td class="tg-0pky">Blocks Crypto Miners and Crypto Scams</td>
+			<td class="tg-0pky">Domains</td>
+			<td class="tg-0pky"><a href="Crypto" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Dating Services</td>
+			<td class="tg-0pky">Blocklist to Block Dating Sites and Apps.</td>
+			<td class="tg-0pky">ABP-Simplified</td>
+			<td class="tg-0pky"><a href="dating-services-abp.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Dating Services</td>
+			<td class="tg-0pky">Blocklist to Block Dating Sites and Apps.</td>
+			<td class="tg-0pky">Domains</td>
+			<td class="tg-0pky"><a href="dating-services-domains.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Drugs</td>
+			<td class="tg-0pky">Blocks online drug stores and sites that promote the use of illegal drugs. </td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="drugs.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Fake Generators</td>
+			<td class="tg-0pky">Blocks Fake Generators that promise you something in return for doing surverys / etc.</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="fake_generators.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Fake Sites</td>
+			<td class="tg-0pky">Blocks Fake / Impersonator Sites (gooogle.com or yourtube.com)</td>
+			<td class="tg-0pky">Domains</td>
+			<td class="tg-0pky"><a href="Fake-Sites.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Fake Sites</td>
+			<td class="tg-0pky">Blocks Fake / Impersonator Sites (gooogle.com or yourtube.com)</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="fake-sites-abp" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Gambling</td>
+			<td class="tg-0pky">Blocks Access to Gambling Sites</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="Gambling.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Malware</td>
+			<td class="tg-0pky">Blocks Sites Containing Malware</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="anti-anti-adblock.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Mobile Filter</td>
+			<td class="tg-0pky">Filter Recommended for Mobile Devices, blocks Ads and Trackers.</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="mobile-ads-trackers.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Scam</td>
+			<td class="tg-0pky">Blocks sites opperated by Scammers.</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="Malware.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Smart TV</td>
+			<td class="tg-0pky">Blocks Ads and Trackers on Smart TV's</td>
+			<td class="tg-0pky">Domains</td>
+			<td class="tg-0pky"><a href="smart-tv.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Trackers</td>
+			<td class="tg-0pky">Blocks Trackers</td>
+			<td class="tg-0pky">ABP Simplified</td>
+			<td class="tg-0pky"><a href="trackers-abp.txt" target="_blank">Link</a></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">Personal Filter</td>
+			<td class="tg-0pky">My Own Personal Filter I use.</td>
+			<td class="tg-0pky">ABP</td>
+			<td class="tg-0pky"><a href="personal-filter.txt" target="_blank">Link</a></td>
+		  </tr>
+		
+		</tbody>
+		</table>
+
+		<div class="titles"><h1>Company Blacklists</h1></div>
+		
+		
+		<table class="tg">
+		<tbody>
+	<tr>
+	  <td class="tg-0pky">Name</td>
+	  <td class="tg-0pky">Description</td>
+	  <td class="tg-0pky">Type</td>
+	  <td class="tg-0pky">Link to Filter</td>
+	</tr>
+	<tr>
+
+	<tr>
+	  <td class="tg-0pky">Facebook</td>
+	  <td class="tg-0pky">Block Facebook, and Facebook related services.</td>
+	  <td class="tg-0pky">Domains</td>
+	  <td class="tg-0pky"><a href="company/facebook.txt" target="_blank">Link</a></td>
+	</tr>
+	<tr>
+	  <td class="tg-0pky">Google</td>
+	  <td class="tg-0pky">Block Google</td>
+	  <td class="tg-0pky">Domains</td>
+	  <td class="tg-0pky"><a href="company/google.txt" target="_blank">Link</a></td>
+	</tr>
+	<tr>
+	  <td class="tg-0pky">Tiktok</td>
+	  <td class="tg-0pky">Block Tiktok</td>
+	  <td class="tg-0pky">ABP Simplified</td>
+	  <td class="tg-0pky"><a href="company/tiktok-abp.txt" target="_blank">Link</a></td>
+	</tr>
+	<tr>
+	  <td class="tg-0pky">Whatsapp</td>
+	  <td class="tg-0pky">Completely Blocks the Whatsapp app.</td>
+	  <td class="tg-0pky">Domains</td>
+	  <td class="tg-0pky"><a href="company/whatsapp-domains.txt" target="_blank">Link</a></td>
+	</tr>
+  </tbody>
+  </table>
+</P>
+
+
+
+
+
+
+
+<!-- Start Script -->
+	<script>
+
+		// Drop Down Menu Script	
+		
+		function drop_down_menu() {
+			var x = document.getElementById("myLinks");
+			if (x.style.display === "block") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "block";
+			}
+		}
+
+        // Dark Mode
+            function darkmode() {         
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+        }   
+	</script>
+
+<!-- End Script --> 
+
+
+</html>

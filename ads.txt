@@ -1,0 +1,7 @@
+! Title: Shub's Ad Filter
+! Description: Filter to Block Ads (I recommend using my "ads-simple" filter with this.)
+! Entries: 2
+! Version: 1
+! Last Modified: August 20, 2021
+espncricinfo.com###ad-bannertoprow-378696-cnt
+reddit.com##div[class*=promotedlink]
