@@ -42,9 +42,7 @@ cdn.fbsbx.com
 edge-mqtt.facebook.com
 t.ly
 adf.ly
-www.adf.ly
 bit.ly
-www.bit.ly
 goo.gl
 ow.ly
 www.ow.ly
